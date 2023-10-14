@@ -35,7 +35,7 @@ def store_card_list(card_list):
   output_file_name = 'si-{0}.csv'.format(get_date_pattern())
   with codecs.open(output_file_name, mode='w', encoding='utf-8-sig') as output_file:
     for card in card_list:
-      outputline = '%s,%s,%s\r\n' % (card[1], card[0], card[2])
+      outputline = '%s,%s,%s\r\n' % (card[1].strip(), card[0].strip(), card[2].strip())
       outputline = (outputline) \
         .replace(u'û', u'ű') \
         .replace(u'õ', u'ő') \
