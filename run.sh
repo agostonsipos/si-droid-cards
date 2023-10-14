@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 
-python2 generate-card-file.py
+python generate-card-file.py

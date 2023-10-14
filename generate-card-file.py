@@ -1,6 +1,6 @@
 # coding: utf-8
 
-import urllib2
+import urllib.request
 import codecs
 import os.path
 from datetime import datetime
@@ -12,8 +12,8 @@ def get_date_pattern():
 def get_archive():
   filename = 'mtfsz-{0}.csv'.format(get_date_pattern())
   if not os.path.isfile(filename):
-    response = urllib2.urlopen('http://mtfsz.hu/megjelenites/si_archivum.php')
-    with codecs.open(filename, mode='w') as file:
+    response = urllib.request.urlopen('http://mtfsz.hu/megjelenites/si_archivum.php')
+    with codecs.open(filename, mode='wb') as file:
       file.write(response.read())
   return filename
 
@@ -36,7 +36,7 @@ def store_card_list(card_list):
   with codecs.open(output_file_name, mode='w', encoding='utf-8-sig') as output_file:
     for card in card_list:
       outputline = '%s,%s,%s\r\n' % (card[1], card[0], card[2])
-      outputline = unicode(outputline) \
+      outputline = (outputline) \
         .replace(u'û', u'ű') \
         .replace(u'õ', u'ő') \
         .replace(u'Õ', u'Ő') \
