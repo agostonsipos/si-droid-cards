@@ -26,7 +26,7 @@ def get_card_list():
       si = row[1]
       if si.isdigit():
         name = row[2] + ' ' + row[3]
-        club = row[7]
+        club = row[7] + ' ' + row[8]
         val = (name, si, club)
         card_list.append(val)
   return sorted(card_list)
